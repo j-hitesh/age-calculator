@@ -7,48 +7,91 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <style>
+    body{
+        background-color: #0a6cf1;
+    }
     .container {
-    text-align: center;
     margin: 20px auto;
     max-width: 400px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #080808;
+    border-radius: 8px;
+    background-color: #080808;
+    display: flex;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    gap: 1.5em;
+    color: #fff;
+   
 }
-.age{
-    display: inline;
-}
+
 input {
-    width: 80%;
-    padding: 10px;
+    width: 60%;
+    padding: 0 20px;
     margin-bottom: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 5px;
 }
 
 button {
-    background-color: #0074D9;
-    color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 0 20px;
     cursor: pointer;
+    box-sizing: border-box;
+    width: 30%;
+    font-size: 14px;
+    height: 50px;
+    border-radius: 5px;
 }
-
-button:hover {
-    background-color: #0056b3;
+.container1 {
+    display: flex;
+    justify-content: center;
+    gap: 4em;
 }
-
-#result {
-    font-weight: bold;
+.container1 div{
+    width: 100px;
+    background-color: #080808;
+    border-radius: 5px;
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    padding: 20px 0;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    
 }
 </style>
 <body>
-    <div class="container">
-        <h1>Age Calculator</h1>
-        <p>Enter your date of birth:</p>
-        <div class="age">
+    <div class="container" style="margin-top: 13%;">
             <input type="date" id="dob" placeholder="dd/mm/yyyy">
             <button onclick="calculateAge()">Calculate</button>
-            <p id="result"></p>
-
+    </div>
+    <div class="container1">
+        <div>
+            <span id="result1">
+                -
+            </span>
+            <p>
+                Years
+            </p>
+        </div>
+        <div>
+            <span id="result2">
+                -
+            </span>
+            <p>
+                Years
+            </p>
+        </div>
+        <div>
+            <span id="result3">
+                -
+            </span>
+            <p>
+                Years
+            </p>
         </div>
     </div>
     <script >
@@ -61,11 +104,9 @@ function calculateAge() {
     const monthDiff = currentDate.getMonth() - dob.getMonth();
     const dateDiff = currentDate.getDate() - dob.getDate();
 
-    if (monthDiff < 0 || (monthDiff === 0 && dateDiff < 0)) {
-        yearDiff--;
-    }
-
-    document.getElementById('result').textContent = `Your current age is ${yearDiff} years.`;
+    document.getElementById('result1').textContent = ` ${yearDiff} `;
+    document.getElementById('result2').textContent = ` ${monthDiff} `;
+    document.getElementById('result3').textContent = ` ${dateDiff} `;
 }
 
     </script>
